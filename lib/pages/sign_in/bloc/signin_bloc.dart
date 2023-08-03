@@ -9,8 +9,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInStates> {
   }
 
   void _passwordEvent(PasswordEvent event, Emitter<SignInStates> emit) {
-    print('my email is ${event.password}');
-    emit(state.copyWith(email: event.password));
+    print('my password is ${event.password}');
+    emit(state.copyWith(password: event.password));
   }
 
   SignInBloc() : super(const SignInStates()) {
@@ -18,3 +18,4 @@ class SignInBloc extends Bloc<SignInEvent, SignInStates> {
     on<PasswordEvent>(_passwordEvent);
   }
 }
+

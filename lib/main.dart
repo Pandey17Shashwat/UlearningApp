@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/app_events.dart';
-import 'package:ulearning_app/pages/Welcome/Bloc/welcome_blocs.dart';
+import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/pages/Welcome/welcome.dart';
-import 'package:ulearning_app/pages/sign_in/bloc/signin_bloc.dart';
+import 'package:ulearning_app/pages/bloc_providers.dart';
+import 'package:ulearning_app/pages/register/register.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 
 import 'app_blocs.dart';
@@ -26,21 +27,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => WelcomeBloc()),
-        BlocProvider(create: (context) => AppBlocs()),
-        BlocProvider(create: (context) => SignInBloc()),
-      ],
+      providers: AppBlocProviders.allBlocProviders,
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+              iconTheme: const IconThemeData(
+                 color: AppColors.primaryText,
+              ),
               appBarTheme: const AppBarTheme(
                   elevation: 0, backgroundColor: Colors.white)),
           home: const Welcome(),
           routes: {
             "myHomePage": (context) => const MyHomePage(),
             "signIn": (context) => const SignIn(),
+            "register": (context) => const Register(),
           },
         ),
       ),
