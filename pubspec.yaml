@@ -79,6 +79,11 @@ flutter:
     - assets/icons/facebook.png
     - assets/icons/user.png
     - assets/icons/lock.png
+    - assets/icons/home.png
+    - assets/icons/search2.png
+    - assets/icons/play-circle1.png
+    - assets/icons/message-circle.png
+    - assets/icons/person2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
